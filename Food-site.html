@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodie Delight - Order Your Favorite Meals</title>
+    
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        /* Navigation Bar */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: #003366;
+            color: white;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ff6600;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: #003366;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+        }
+
+        .hero .order-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #ff6600;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 15px;
+            font-size: 1.2rem;
+            transition: 0.3s;
+        }
+
+        .hero .order-btn:hover {
+            background: #cc5500;
+        }
+
+        /* Live Order Counter */
+        .live-orders {
+            text-align: center;
+            font-size: 1.4rem;
+            margin: 30px 0;
+            color: #003366;
+            font-weight: bold;
+        }
+
+        /* Chef's Special */
+        .special {
+            padding: 30px;
+            background: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            border: 2px solid #003366;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 500px;
+            transition: 0.3s;
+        }
+
+        .special:hover {
+            background: #f1f1f1;
+        }
+
+        /* Reviews */
+        .reviews {
+            text-align: center;
+            padding: 40px;
+            background: #f8f8f8;
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+
+        /* Contact Section */
+        .contact {
+            text-align: center;
+            padding: 40px;
+            background: #003366;
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <div class="logo">Foodie Delight</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#special">Chef's Special</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>Welcome to Foodie Delight</h1>
+        <p>Delicious meals, fresh ingredients, and the best taste in town!</p>
+        <a href="#special" class="order-btn">Order Now</a>
+    </section>
+
+    <!-- Live Orders -->
+    <div class="live-orders">
+        Live Orders Right Now: <span id="orderCount">50</span>
+    </div>
+
+    <!-- Chef's Special -->
+    <section id="special" class="special">
+        Today's Chef's Special: <span id="specialDish">Loading...</span>
+    </section>
+
+    <!-- Customer Reviews -->
+    <section id="reviews" class="reviews">
+        <h2>What Our Customers Say</h2>
+        <p id="randomReview">Loading...</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <p>Email: contact@foodiedelight.com</p>
+        <p>Phone: +91 98765 43210</p>
+        <p>Location: Mumbai, India</p>
+    </section>
+
+    <script>
+        // Live Order Counter (Changes every few seconds)
+        function updateOrderCount() {
+            let count = Math.floor(Math.random() * 100) + 20;
+            document.getElementById("orderCount").innerText = count;
+        }
+        setInterval(updateOrderCount, 3000);
+
+        // Dynamic Chef's Special (Changes every few seconds)
+        const specials = ["Spicy Paneer Tikka", "Cheesy Alfredo Pasta", "Tandoori Chicken Wrap", "Chocolate Lava Cake"];
+        function updateSpecial() {
+            let special = specials[Math.floor(Math.random() * specials.length)];
+            document.getElementById("specialDish").innerText = special;
+        }
+        setInterval(updateSpecial, 4000);
+        updateSpecial();
+
+        // Random Reviews
+        const reviews = [
+            '"The best burger I have ever had! - Rahul"',
+            '"Loved the pizza, perfect flavors! - Sneha"',
+            '"Absolutely delicious! Great service too! - Arjun"',
+            '"Best place to enjoy a meal with family. - Priya"'
+        ];
+        function updateReview() {
+            let review = reviews[Math.floor(Math.random() * reviews.length)];
+            document.getElementById("randomReview").innerText = review;
+        }
+        setInterval(updateReview, 5000);
+        updateReview();
+    </script>
+
+</body>
+</html>
